@@ -1,0 +1,42 @@
+<span class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" onclick="loadCodeFromLocalStorage()" style="font-size: 13px;">
+      Load from Local Storage
+    </button>
+    <div class="divider"></div>
+    <button class="dropdown-item" onclick="$('#editor-file-input').click()">Load from File</button>
+    <div class="divider"></div>
+    <button class="dropdown-item" onclick="saveCodeToLocalStorage()">Save to Local Storage</button>
+    <div class="divider"></div>
+    <button class="dropdown-item" onclick="saveCodeToFile()">Save As</button>
+  </div>
+</span>
+
+<span class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" onclick="replaceAll()">Replace All</button>
+  </div>
+</span>
+
+<span class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Run</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" onclick="alert('Coming soon...')">Run in browser</button>
+  </div>
+</span>
+
+<span class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" onclick="setIndentSize()">Set Indent Size</button>
+  </div>
+</span>
+
+<span class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" onclick="location.href='./about.html'">About</button>
+  </div>
+</span>
