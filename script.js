@@ -19,7 +19,7 @@ function loadCodeFromLocalStorage() {
 function saveCodeToLocalStorage() {
   if(localStorage.getItem('DPLA_EDITOR_SAVED_CODE')) {
     if(window.confirm("There is already a program stored in your local storage. Do you want to override it?")) {
-      localStorage.setItem('DPLA_EDITOR_SAVED_CODE', codeArea.val())
+      localStorage.setItem('DPLA_EDITOR_SAVED_CODE', codeArea.val());
     }
   } else {
     localStorage.setItem('DPLA_EDITOR_SAVED_CODE', codeArea.val());
@@ -62,6 +62,16 @@ function setIndentSize() {
       const currentCode = codeArea.val();
       codeArea.val(currentCode.slice(0,curPosStart)+' '.repeat(indentSize)+currentCode.slice(curPosStart));
       codeArea[0].setSelectionRange(curPosStart + indentSize, curPosEnd + indentSize);
+    }
+    if(
+      e.key === 'Backspace' && codeArea.is(":focus") && codeArea[0].selectionStart === codeArea[0].selectionEnd &&
+      codeArea.val().slice(codeArea[0].selectionStart - indentSize, codeArea[0].selectionStart) === ' '.repeat(indentSize)
+    ) {
+      e.preventDefault();
+      const curPosStart = codeArea[0].selectionStart;
+      const curPosEnd = codeArea[0].selectionStart;
+      codeArea.val(codeArea.val().slice(0, curPosStart - indentSize) + codeArea.val().slice(curPosStart));
+      codeArea[0].setSelectionRange(curPosStart - indentSize, curPosStart - indentSize);
     }
   });
   codeArea.on('input', function(e) {
