@@ -5,7 +5,7 @@ $('#editor-file-input').on('change', function(e) {
   const file = $(this).files[0];
   const fileReader = new FileReader();
   fileReader.onload = function() {
-    codeArea.val(fr.result);
+    codeArea.val(fileReader.result);
   }
   fileReader.readAsText(file);
 });
