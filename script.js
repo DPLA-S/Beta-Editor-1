@@ -52,7 +52,8 @@ function setIndentSize() {
     }
   }
   window.codeArea = $('#codearea');
-  let edited = false
+  codeArea.val('Lang["DPLA"]\nEvent(onLaunch):(\n'+' '.repeat(indentSize)+'command_print("Hello World")\n)');
+  let edited = false;
   window.addEventListener('keydown', handleShortcuts);
   window.addEventListener('keydown', function(e) {
     if(e.key === 'Tab' && codeArea.is(":focus")) {
