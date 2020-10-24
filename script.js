@@ -45,6 +45,7 @@ function setIndentSize() {
   indentSize = Number(localStorage.getItem("DPLA_EDITOR_INDENT_SIZE"));
 }
 (function() {
+  window.addEventListener('keydown', handleShortcuts);
   function handleShortcuts(e) {
     if(e.ctrlKey && e.key.toLowerCase() === 's') {
       e.preventDefault();
@@ -52,9 +53,8 @@ function setIndentSize() {
     }
   }
   window.codeArea = $('#codearea');
-  codeArea.val('Lang["DPLA"]\nEvent(onLaunch):(\n'+' '.repeat(indentSize)+'command_print("Hello World")\n)');
+  codeArea.val('Lang["DPLA"]\nEvent[onLaunch]:(\n'+' '.repeat(indentSize)+'command_print["Hello World"]\n)');
   let edited = false;
-  window.addEventListener('keydown', handleShortcuts);
   window.addEventListener('keydown', function(e) {
     if(e.key === 'Tab' && codeArea.is(":focus")) {
       e.preventDefault();
