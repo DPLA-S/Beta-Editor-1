@@ -49,7 +49,7 @@ function setIndentSize() {
   function handleShortcuts(e) {
     if(e.ctrlKey && e.key.toLowerCase() === 's') {
       e.preventDefault();
-      saveCode();
+      saveCodeToFile();
     }
   }
   window.codeArea = $('#codearea');
